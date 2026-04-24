@@ -1,9 +1,12 @@
-function constructRectangle(area: number): number[] {
-    for (let i: number = Math.trunc(Math.sqrt(area)); i >= 2; --i) {
-        if (area % i === 0) {
-            return [area / i, i];
+function findOcurrences(text: string, first: string, second: string): string[] {
+    const textLines = text.split(' ');
+    const result: string[] = [];
+
+    for (let i = 0; i < textLines.length-2; ++i) {
+        if (textLines[i] === first && textLines[i+1] === second) {
+            result.push(textLines[i+2]);
         }
     }
 
-    return [area, 1];
+    return result;
 };
